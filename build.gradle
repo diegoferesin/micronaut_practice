@@ -25,6 +25,14 @@ dependencies {
     implementation("io.micronaut:micronaut-runtime")
     implementation("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
+    implementation("io.swagger.core.v3:swagger-annotations")
+    annotationProcessor("io.micronaut.configuration:micronaut-openapi:1.5.2")
+
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 }
 
 mainClassName = "matrix.study.material.Application"
