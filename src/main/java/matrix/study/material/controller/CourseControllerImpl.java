@@ -3,10 +3,13 @@ package matrix.study.material.controller;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.RequestAttributes;
 import matrix.study.material.dto.CourseDTO;
 import matrix.study.material.service.CoursesService;
 
+import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller("/")
 public class CourseControllerImpl implements CourseController {
@@ -25,14 +28,16 @@ public class CourseControllerImpl implements CourseController {
     }
 
     @Override
-    public CourseDTO createCourse(final CourseDTO course) {
+    public CourseDTO createCourse(@Valid final CourseDTO course) {
 
-        if (course.getIsActive()) {
+        return this.coursesService.createCourse(course);
+    }
 
-            return this.coursesService.createCourse(course);
-        }
+    @Override
+    public List<CourseDTO> getCourseByTag(final String sentence) {
 
-        return null;
-
+        return this.coursesService.getCourses().stream()
+                .filter(courseDTO -> courseDTO.getTags().contains(sentence))
+                .collect(Collectors.toList());
     }
 }

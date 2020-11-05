@@ -1,3 +1,17 @@
 micronaut:
   application:
     name: matrixStudyMaterial
+  server:
+    port: 9999
+    cors:
+      enabled: true
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+    versioning:
+      enabled: true
+      default-version: 1
+      header:
+        enabled: true

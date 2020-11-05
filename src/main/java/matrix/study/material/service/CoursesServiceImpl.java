@@ -13,13 +13,6 @@ public class CoursesServiceImpl implements CoursesService {
 
     private List<CourseDTO> courses;
 
-    private Long courseId;
-    private String title;
-    private String description;
-    private String link;
-    private List<String> tags;
-    private Boolean isActive;
-
     public CoursesServiceImpl() {
         this.courses = new ArrayList<>();
 
@@ -27,7 +20,6 @@ public class CoursesServiceImpl implements CoursesService {
         List<String> tagsListNet = new ArrayList<>(Arrays.asList(".Net", "Microsoft"));
         List<String> tagsListMySQL = new ArrayList<>(Arrays.asList("MySQL", "YourSQL"));
         List<String> tagsListMongoDB = new ArrayList<>(Arrays.asList("MongoDB", "NoSQL"));
-        ;
 
         this.courses.add(CourseDTO.builder()
                 .courseId(Long.valueOf(01))
@@ -63,7 +55,7 @@ public class CoursesServiceImpl implements CoursesService {
 
     @Override
     public List<CourseDTO> getCourses() {
-        return courses;
+        return this.courses;
     }
 
     @Override

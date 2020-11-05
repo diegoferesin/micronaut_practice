@@ -15,5 +15,7 @@ public interface CourseController {
 
     CourseDTO createCourse(CourseDTO course);
 
+    List<CourseDTO> getCourseByTag(String sentence);
+
 
 }
