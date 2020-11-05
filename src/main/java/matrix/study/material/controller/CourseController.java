@@ -1,23 +1,19 @@
 package matrix.study.material.controller;
 
+import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import matrix.study.material.dto.CourseDTO;
+import matrix.study.material.service.CoursesService;
+
+import java.util.List;
 
 
-// TODO Por qué declaro el path acá y también abajo?
-@Controller("/")
-public class CourseController {
+public interface CourseController {
 
-    // TODO Qué reemplaza al "ResposeEntity" de Spring?
-    @Get("/courses")
-    public CourseDTO getCourses(){
+    HttpResponse<List<CourseDTO>> getCourses();
 
-        return this.courseService.getCourses();
-
-    }
-
-
+    CourseDTO createCourse(CourseDTO course);
 
 
 }

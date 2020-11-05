@@ -9,5 +9,5 @@ public interface CoursesService {
 
     public List<CourseDTO> getCourses();
 
-    public CourseDTO createCourse();
+    public CourseDTO createCourse(CourseDTO course);
 }
